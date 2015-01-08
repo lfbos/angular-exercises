@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="nombreApp">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Insertar multiples Controladores en AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="controlador1">
+			Nombre: {{ nombre }}
+		</div>
+
+		<div ng-controller="controlador2">
+			Nombre: {{ nombre }}
+		</div>
+
+		<hr>
+
+		<script>
+			var miAplicacion = angular.module('nombreApp', []);
+			
+			miAplicacion.controller('controlador1', ['$scope',
+			function($scope) {
+				$scope.nombre = "Luis";
+			}]);
+			
+			miAplicacion.controller('controlador2', ['$scope',
+			function($scope) {
+				$scope.nombre = "Felipe";
+			}]);
+			
+		</script>
+	</body>
+</html>
