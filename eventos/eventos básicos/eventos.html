@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app >
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        
+        <style>
+             
+            h1{
+                height: 50px;
+            }
+            
+        </style>
+    </head>
+    
+    
+    <body ng-controller="administradorClicks">
+        
+        <h1> {{mensaje}} </h1>
+        
+        <img src="ejemplo1.png" ng-mouseenter="mostrarMensaje()"  ng-mouseleave="mensaje = ''" ng-src="{{imagen}}">
+        
+        <hr>
+        
+        <button ng-click="mensaje = ''"> Click (borra) </button>
+        
+        
+       <button ng-click="mostrarMensaje()"> Click (escribe) </button>
+        
+        
+        <button ng-click="imagen ='ejemplo2.png'"> Cambiar Imagen </button>
+        
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js" ></script>
+        <script>
+            
+            function administradorClicks($scope){
+                $scope.imagen = 'ejemplo1.png'
+                $scope.mostrarMensaje = function (){
+                    $scope.mensaje = "Mouse Detectado";
+                }
+            }
+            
+        </script>
+        
+    </body>
+</html>

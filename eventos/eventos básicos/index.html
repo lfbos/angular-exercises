@@ -1,0 +1,62 @@
+<!doctype html>
+<html ng-app="accion" >
+	<head>
+		<meta charset="utf-8">
+		<title>Eventos </title>
+		<style>
+			button, img {
+				display: block
+			}
+			button {
+				width: 300px;
+				margin: 10px;
+				padding: 5px
+			}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+	</head>
+	<body>
+
+		<div ng-controller="controlador1" >
+
+			<button ng-click="clickSimple()">
+				Click
+			</button>
+
+			<button ng-dblclick="clickDoble()">
+				Click
+			</button>
+
+			<img src="ejemplo1.png" ng-mouseleave="mouseDejaLaImagen()" ng-mouseenter="mouseSobreLaImagen()" />
+
+			<h1>{{ evento }}</h1>
+
+		</div>
+
+		<script>
+			var miAplicacion = angular.module('accion', []);
+
+			miAplicacion.controller('controlador1', ['$scope',
+			function($scope) {
+				$scope.clickSimple = function() {
+					$scope.evento = "click";
+				};
+				
+				$scope.clickDoble = function() {
+					$scope.evento = "doble";
+				};
+				
+				$scope.mouseDejaLaImagen = function() {
+					$scope.evento = "mouse sale de la imagen";
+				};
+				
+				$scope.mouseSobreLaImagen = function() {
+					$scope.evento = "mouse entra a la imagen";
+				};
+			}]);
+			
+		</script>
+
+	</body>
+</html>
